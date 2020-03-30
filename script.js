@@ -2,6 +2,14 @@ const tableKey = 'cms-table';
 let cmsTable;
 let cmsTableDemo = {};
 
+document.getElementById('SortButton').addEventListener('click', () => {
+    const sortedKeys = Object.keys(cmsTable).sort();
+    const tempTable = {};
+    sortedKeys.forEach(key => tempTable[key] = cmsTable[key]);
+    cmsTable = tempTable;
+    refreshTable();
+});
+
 let enableDisableNameInput = (option) => {
     let newPersonName = document.getElementById('newPersonName');
     if(option === 'enable')
